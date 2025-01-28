@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Online Ordering">
+    <listeners>
+        <listener class-name="reporting.Listener"> </listener>
+    </listeners>
+    <parameter name="BASEURL" value="${BASEURL}"> </parameter>
+    <parameter name="Browser" value="headless"> </parameter>
+    <parameter name="Platform" value="Mobile"> </parameter>
+    <parameter name="Device" value="Android"> </parameter>
+    <test thread-count="5" name="QuickServe - ONLINE">
+        <classes>
+            <class name="tests.OrderingQRTest"> </class>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
