@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="POS Smoke Test Suite" parallel="tests" thread-count="2">
+	<listeners>
+		<listener class-name="reporting.Listeners"></listener>
+	</listeners>
+	<parameter name="environment" value="${environment}"></parameter>
+  <test name="DashOrder">
+	<parameter name="udid" value="${udid1}"></parameter>
+	<parameter name="serverPin" value="${serverPin1}"></parameter>
+	<parameter name="managerPin" value="${managerPin1}"></parameter>
+	<parameter name="systemPort" value="${systemPort1}"></parameter>
+	<parameter name="appiumPort" value="${appiumPort1}"></parameter>
+	  <groups>
+		  <run>
+			  <include name="Smoke"></include>
+		  </run>
+	  </groups>
+    <classes>
+		<class name="tests.OrderTest">
+	  </class>
+    </classes>
+  </test>
+ <!-- Test -->
+   <test name="Test">
+	<parameter name="udid" value="${udid2}"></parameter>
+	<parameter name="serverPin" value="${serverPin2}"></parameter>
+	<parameter name="managerPin" value="${managerPin2}"></parameter>
+	<parameter name="systemPort" value="${systemPort2}"></parameter>
+	<parameter name="appiumPort" value="${appiumPort2}"></parameter>
+	  <groups>
+		  <run>
+			  <include name="Smoke"></include>
+		  </run>
+	  </groups>
+    <classes>
+	  	  <class name="tests.DashboardTest">
+		  <methods>
+			  <exclude name="verifyClockInTime"></exclude>
+		  </methods>
+	  </class>
+	  <class name="tests.PaymentTest">
+		  <methods>
+			  <exclude name="verifyAmountAddedinDrawer"></exclude>
+		  </methods>
+	  </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
